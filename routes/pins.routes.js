@@ -13,7 +13,7 @@ router.post("/createpin", async (req,res,next)=>{
     }
 })
 
-router.get("/createpin", async (req,res,next)=>{
+router.get("/getpin", async (req,res,next)=>{
     try{
         const pins = await Pin.find();
         res.status(200).json(pins);
