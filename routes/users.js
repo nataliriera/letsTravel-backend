@@ -25,6 +25,14 @@ router.post("/register", async (req,res,next)=>{
     }
 })
 
+router.get("/", async (req,res,next)=>{
+    try{
+        const result = await User.find()
+        res.status(200).json({result})
+    }catch(err){
+        res.status(500).json(err)
+    }
+})
 
 //login
 router.post("/login", async (req,res,next)=>{

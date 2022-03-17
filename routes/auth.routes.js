@@ -35,7 +35,7 @@ router.get("/session", (req, res) => {
 });
 
 router.post("/signup", isLoggedOut, (req, res) => {
-  const { username, password } = req.body;
+  const { email, username, password } = req.body;
 
   if (!username) {
     return res
@@ -75,6 +75,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
       .then((hashedPassword) => {
         // Create a user and save it in the database
         return User.create({
+          email,
           username,
           password: hashedPassword,
         });
@@ -88,6 +89,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
         });
       })
       .catch((error) => {
+        console.log("error", error)
         if (error instanceof mongoose.Error.ValidationError) {
           return res.status(400).json({ errorMessage: error.message });
         }
