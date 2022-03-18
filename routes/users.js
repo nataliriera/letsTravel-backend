@@ -15,6 +15,12 @@ router.post("/register", async (req,res,next)=>{
         username:req.body.username,
         email:req.body.email,
         password:hashedPassword,
+        job_title:req.body.job_title,
+        skills:req.body.skills,
+        location:req.body.location,
+        about:req.body.about,
+        linked_in:req.body.linked_in,
+        github:req.body.github
     });
 
         //save user and send response

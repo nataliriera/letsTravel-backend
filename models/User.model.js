@@ -17,7 +17,36 @@ const userSchema = new Schema(
     password: {
       type: String,
       require: true,
+    },
+    job_title: {
+      type: String,
+      require: true,
+    },
+    skills: {
+      type: String,
+      require: true,
+    },
+    location: {
+      type: String,
+      require: false,
+    },
+    about: {
+      type: String,
+      require: false,
+    },
+    linked_in:{
+      type: String,
+      require: true,
+    },
+    github:{
+      type: String,
+      require: true,
+    },
+    blog: {
+      type: String,
+      require: false,
     }
+
     // profile_pic: {
     //   type: String,
     //   default:
