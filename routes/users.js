@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const User = require("../models/User.model");
 const bcrypt = require("bcrypt");
-
+const isLoggedIn = require("../middleware/isLoggedIn");
 //register
 
 router.post("/register", async (req,res,next)=>{
@@ -20,13 +20,24 @@ router.post("/register", async (req,res,next)=>{
         location:req.body.location,
         about:req.body.about,
         linked_in:req.body.linked_in,
-        github:req.body.github
+        github:req.body.github,
+        profile_pic:req.body.profile_pic
     });
 
         //save user and send response
     const user = await newUser.save();
     res.status(200).json(user._id)
     }catch(err){
+        res.status(500).json(err)
+    }
+})
+
+router.post("/edit", isLoggedIn, async (req,res,next) =>{
+    try{
+        const {_id} = req.user
+        const result = await User.findByIdAndUpdate(_id, {...req.body}, {new:true});
+        res.status(200).json({result})
+    }catch(error){
         res.status(500).json(err)
     }
 })

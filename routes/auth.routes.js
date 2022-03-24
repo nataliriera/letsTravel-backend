@@ -35,7 +35,7 @@ router.get("/session", (req, res) => {
 });
 
 router.post("/signup", isLoggedOut, (req, res) => {
-  const { email, username, password,job_title, skills, location,about,linked_in, github } = req.body;
+  const { email, username, password,job_title, skills, location,about,linked_in, github, profile_pic } = req.body;
 
   if (!username) {
     return res
@@ -83,7 +83,8 @@ router.post("/signup", isLoggedOut, (req, res) => {
           location,
           about,
           linked_in,
-          github
+          github,
+          profile_pic
         });
       })
       .then((user) => {
