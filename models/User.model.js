@@ -34,11 +34,11 @@ const userSchema = new Schema(
       type: String,
       require: false,
     },
-    linked_in:{
+    linked_in: {
       type: String,
       require: true,
     },
-    github:{
+    github: {
       type: String,
       require: true,
     },
@@ -62,5 +62,3 @@ const userSchema = new Schema(
 const User = model("User", userSchema);
 
 module.exports = User;
-
-

@@ -16,19 +16,19 @@ const PinSchema = new Schema(
       require: true,
       min: 3,
     },
-    date:{
+    date: {
       type: String,
       require: true,
     },
-    time:{
+    time: {
       type: String,
       require: true,
     },
-    address:{
+    address: {
       type: String,
       require: true,
     },
-  
+
     lat: {
       type: Number,
       require: true,

@@ -10,8 +10,7 @@ const MONGO_URL = process.env.MONGODB_URL || "mongodb://localhost/techandtapas";
 mongoose
   .connect(MONGO_URL, {
     useNewUrlParser: true,
-  useUnifiedTopology: true,
-  
+    useUnifiedTopology: true,
   })
   .then((x) => {
     console.log(
