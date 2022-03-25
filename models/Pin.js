@@ -16,12 +16,19 @@ const PinSchema = new Schema(
       require: true,
       min: 3,
     },
-    rating: {
-      type: Number,
+    date:{
+      type: String,
       require: true,
-      min: 0,
-      max: 5,
     },
+    time:{
+      type: String,
+      require: true,
+    },
+    address:{
+      type: String,
+      require: true,
+    },
+  
     lat: {
       type: Number,
       require: true,

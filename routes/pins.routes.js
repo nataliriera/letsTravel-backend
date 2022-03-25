@@ -1,9 +1,10 @@
 const router = require("express").Router();
 const Pin = require("../models/Pin");
+// const isLoggedIn = require("../middleware/isLoggedIn");
 
 //create pin
 
-router.post("/createpin", async (req,res,next)=>{
+router.post("/createpin",  async (req,res,next)=>{
     const newPin = new Pin(req.body);
     try{
         const savedPin = await newPin.save();
