@@ -46,11 +46,15 @@ const userSchema = new Schema(
       type: String,
       require: false,
     },
+    isAdmin: {
+      type: Boolean,
+      default: false
+    },
 
     profile_pic: {
       type: String,
       default:
-        "https://res.cloudinary.com/dzdovm4uz/image/upload/v1642550134/profile_lknnfm.jpg",
+        "https://res.cloudinary.com/dzdovm4uz/image/upload/v1648261017/profile-pictures/avatar_a44xzq.png",
     },
   },
   {

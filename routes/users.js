@@ -22,10 +22,14 @@ router.post("/register", async (req, res, next) => {
       linked_in: req.body.linked_in,
       github: req.body.github,
       profile_pic: req.body.profile_pic,
+      isAdmin: req.body.isAdmin,
     });
 
     //save user and send response
     const user = await newUser.save();
+    if(req.body.isAdmin == 'secretcode123'){
+    newUser.isAdmin = true;
+    }
     res.status(200).json(user._id);
   } catch (err) {
     res.status(500).json(err);
